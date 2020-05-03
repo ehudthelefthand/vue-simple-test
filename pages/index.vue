@@ -3,7 +3,7 @@
     <form @submit.prevent="handleSubmit">
       <label for="task">Task</label>
       <input type="text" name="task" id="task" v-model="form.task" autofocus />
-      <button type="submit">add</button>
+      <button>add</button>
     </form>
     <ul>
       <li v-for="task in tasks" :key="task.id">
@@ -28,8 +28,8 @@ export default {
         task: ""
       },
       tasks: [
-        { id: uuid(), name: "buy milk", done: false },
-        { id: uuid(), name: "do homework", done: true }
+        // { id: uuid(), name: "buy milk", done: false },
+        // { id: uuid(), name: "do homework", done: true }
       ]
     };
   },
@@ -37,10 +37,11 @@ export default {
     handleSubmit() {
       const task = {
         id: uuid(),
-        name: task,
+        name: this.form.task,
         done: false
       };
-      tasks.push(task);
+      this.tasks.push(task);
+      this.form.task = "";
     },
     handleClick(task) {
       task.done = !task.done;

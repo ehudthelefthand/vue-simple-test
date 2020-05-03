@@ -1,22 +1,9 @@
-# todo
+# Todo App
 
-> My exceptional Nuxt.js project
+แอพนี้ทำมาสำหรับอธิบายเรื่องการเขียนเทสใน Vue.js แบบง่ายๆ นะครับ
 
-## Build Setup
+---
 
-```bash
-# install dependencies
-$ npm install
+### Other resource
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+[Here](https://lmiller1990.github.io/vue-testing-handbook/simulating-user-input.html#writing-the-test) is a nice guide on testing
