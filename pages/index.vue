@@ -1,72 +1,101 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        todo
-      </h1>
-      <h2 class="subtitle">
-        My exceptional Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <form @submit.prevent="handleSubmit">
+      <label for="task">Task</label>
+      <input type="text" name="task" id="task" v-model="form.task" autofocus />
+      <button type="submit">add</button>
+    </form>
+    <ul>
+      <li v-for="task in tasks" :key="task.id">
+        <div @click.prevent="handleClick(task)">
+          <input type="checkbox" :checked="task.done" /><span
+            :class="{ done: task.done }"
+            >{{ task.name }}</span
+          >
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { v4 as uuid } from "uuid";
 
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      form: {
+        task: ""
+      },
+      tasks: [
+        { id: uuid(), name: "buy milk", done: false },
+        { id: uuid(), name: "do homework", done: true }
+      ]
+    };
+  },
+  methods: {
+    handleSubmit() {
+      const task = {
+        id: uuid(),
+        name: task,
+        done: false
+      };
+      tasks.push(task);
+    },
+    handleClick(task) {
+      task.done = !task.done;
+    }
   }
-}
+};
 </script>
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  width: 500px;
+  margin: 2rem auto;
+  padding: 3rem;
+  border: 3px solid #333;
+  border-radius: 5px;
+}
+form {
+  font-size: 16px;
+}
+form label {
+  font-size: 20px;
+  font-weight: bold;
+}
+form input {
+  border: 2px solid #333;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: inherit;
+}
+form button {
+  padding: 8px 12px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  font-size: inherit;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+ul {
+  margin-top: 20px;
+  list-style: none;
 }
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+ul input {
+  margin-right: 10px;
 }
-
-.links {
-  padding-top: 15px;
+ul li {
+  margin-bottom: 5px;
+  font-size: inherit;
+  cursor: pointer;
+}
+ul li .done {
+  text-decoration: line-through;
+}
+ul li:hover {
+  font-weight: bold;
 }
 </style>
