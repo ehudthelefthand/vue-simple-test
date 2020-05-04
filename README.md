@@ -11,3 +11,4 @@
 [อันนี้](https://www.youtube.com/watch?v=URSWYvyc42M&t=948s) เป็น Talk ที่ดีมาก เกี่ยวกับการเขียน Unit test โดยรวม ถ้ามีคำถามว่า เวลาเขียนเทส ควรจะเทสอะไรบ้าง แนะนำให้ไปดู Talk นี้
 
 ![](UnittestMagicTrick.png)
+(Credit รูป จาก Talk ของ Sandi Metz นะครับ)
