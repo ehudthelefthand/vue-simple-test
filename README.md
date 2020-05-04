@@ -10,6 +10,4 @@
 
 [อันนี้](https://www.youtube.com/watch?v=URSWYvyc42M&t=948s) เป็น Talk ที่ดีมาก เกี่ยวกับการเขียน Unit test โดยรวม ถ้ามีคำถามว่า เวลาเขียนเทส ควรจะเทสอะไรบ้าง แนะนำให้ไปดู Talk นี้
 
-![alt UnittestMaticTrick][UnittestMaticTrick]
-
-[UnittestMaticTrick]: https://www.dropbox.com/s/sferubol09cy4eg/UnittestMagicTrick.png?dl=0
+![](UnittestMagicTrick.png)
