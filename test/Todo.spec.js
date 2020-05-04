@@ -54,4 +54,28 @@ describe("Todo App", () => {
 
     expect(secondItem.classes("done")).toBe(false);
   });
+
+  test('adding with empty', async () => {
+    const wrapper = mount(TodoApp);
+    const input = wrapper.find('input[type="text"]');
+    input.setValue("");
+    let form = wrapper.find("form");
+    form.trigger("submit.prevent");
+
+    await wrapper.vm.$nextTick();
+
+    let items = wrapper.findAll("ul li");
+    expect(items.length).toEqual(0);
+    expect(input.element.value).toEqual("");
+
+    input.setValue("    ");
+    form = wrapper.find("form");
+    form.trigger("submit.prevent");
+
+    await wrapper.vm.$nextTick();
+
+    items = wrapper.findAll("ul li");
+    expect(items.length).toEqual(0);
+
+  })
 });

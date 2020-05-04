@@ -35,6 +35,9 @@ export default {
   },
   methods: {
     handleSubmit() {
+      if (this.form.task.trim() === "") {
+        return
+      }
       const task = {
         id: uuid(),
         name: this.form.task,
